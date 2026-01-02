@@ -39,14 +39,14 @@ O sistema impede finalização do pedido com inconsistências
 Validações garantem integridade entre produto, etiqueta e pedido
 
 ## 🛠️ Tecnologias Utilizadas
-** Frontend **
+**Frontend**
 CSS
 
 JavaScript
 
 React
 
-** Backend **
+**Backend**
 TypeScript
 
 APIs REST
