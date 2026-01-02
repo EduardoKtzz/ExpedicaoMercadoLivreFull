@@ -39,14 +39,14 @@ O sistema impede finalização do pedido com inconsistências
 Validações garantem integridade entre produto, etiqueta e pedido
 
 ## 🛠️ Tecnologias Utilizadas
-**Frontend
+** Frontend **
 CSS
 
 JavaScript
 
 React
 
-**Backend
+** Backend **
 TypeScript
 
 APIs REST
@@ -55,10 +55,10 @@ Banco de Dados
 
 Supabase
 
-##🎯 Objetivo do Projeto
+## 🎯 Objetivo do Projeto
 
 Automatizar e padronizar o processo de expedição de pedidos Mercado Livre FULL, reduzindo erros humanos, aumentando a confiabilidade do processo logístico e melhorando a eficiência operacional.
 
-##📌 Status do Projeto
+## 📌 Status do Projeto
 
 🚧 Em evolução contínua — novas melhorias e ajustes de performance podem ser adicionados.
