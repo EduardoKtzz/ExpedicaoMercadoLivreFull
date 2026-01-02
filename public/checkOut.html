@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Verificação</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/checkOut.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📋 Painel de Verificação</h1>
+
+    <!-- Botão Voltar para o menu -->
+    <button class="btn-voltar" onclick="irParaMenu()">
+      ⬅ Voltar ao menu
+    </button>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="barraProgresso" style="width: 0%"></div>
+      <span id="textoProgresso">0% Verificado</span>
+    </div>
+
+    <div class="gs-input">
+      <input type="text" id="gsInput" placeholder="Faça a leitura do código de barras" autocomplete="off">
+    </div>
+
+    <div class="table-container">
+      <table id="pedidosTable">
+        <thead>
+          <tr>
+            <th style="width: 7%;">Pedido</th>
+
+            <!-- Coluna de ean e codigoML na tabela -->
+
+            <!--
+            <th style="width: 11%;">EAN</th>
+            <th style="width: 9%;">Código ML</th>
+            -->
+
+            <th style="width: 38%;">Produto</th>
+            <th style="width: 9%;">GS</th>
+            <th style="width: 8%; text-align: center;">Total</th>
+            <th style="width: 8%; text-align: center;">Verificado</th>
+            <th style="width: 10%;">Status</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-pedidos-body">
+            <tr id="loading-row">
+                <td colspan="8" class="loading-cell">
+                  <div class="spinner"></div>
+                  <div class="loading-text">Carregando itens...</div>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+
+      <template id="pedidoRowTemplate">
+        <tr>
+          <td class="pedido"></td>
+
+          <!-- Coluna de ean e codigoML na tabela -->
+
+           <!--
+          <td class="ean"></td>
+          <td class="codigoML"></td>
+          -->
+
+          <td class="nome"></td>
+          <td class="gs"></td>
+          <td class="qtdTotal"></td>
+          <td class="qtdVerificada"></td>
+          <td class="status"></td>
+        </tr>
+      </template>
+    </div>
+  </div>
+
+  <div id="modalFinalizado" class="modal">
+    <div class="modal-conteudo">
+      <h2>Sucesso! Pedido Verificado 🚀</h2>
+      <button onclick="irParaMenu()">Voltar para o menu</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" defer></script>
+  <script src="js/checkOut.js" defer></script>
+</body>
+</html>

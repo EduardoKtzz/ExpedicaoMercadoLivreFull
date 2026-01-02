@@ -1,0 +1,308 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte e Reset */
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ffffff, #b3b3b4);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1);
+  width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.welcome-header h1 {
+  font-size: 2rem;
+  margin-left: 80px;
+  margin-top: 50px;
+}
+
+.welcome-header .subtitle {
+  color: #555;
+  margin-left: 80px;
+}
+
+/* CONTAINER PRINCIPAL DA TABELA */
+.table-container {
+  width: 100%;
+  max-width: 1500px; /* largura máxima para não esticar demais */
+  margin: 20px auto; /* centraliza e dá espaço das bordas */
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+
+
+/* CONTROLE DOS WRAPPERS */
+.dataTable-wrapper,
+.dataTable-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* TABELA */
+#pedidosTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* CÉLULAS */
+#pedidosTable th,
+#pedidosTable td {
+  padding: 12px 10px;
+  white-space: nowrap;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* CABEÇALHO */
+#pedidosTable th {
+  background-color: #1f2937;
+  font-weight: 600;
+}
+
+#pedidosTable th {
+  color: #f9fafb;
+  padding: 14px;
+  text-align: left;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* LINHAS */
+#pedidosTable tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+#pedidosTable tr:hover {
+  background-color: #eef6ff;
+}
+
+/* BUSCA */
+.dataTable-input {
+  width: 100%;
+  max-width: 280px;
+}
+
+/* PAGINAÇÃO */
+.dataTable-pagination {
+  margin-top: 12px;
+}
+
+.status.em-andamento {
+  color: #ff9800;
+  font-weight: 600;
+}
+
+.status.fechado {
+  color: #4caf50;
+  font-weight: 700;
+}
+
+body.with-navbar {
+    padding-top: 60px;     /* Espaço para a barra superior */
+    padding-left: 250px;   /* Espaço para a barra lateral */
+    transition: padding-left 0.3s ease-in-out;
+    background-color: #f3f4f6;
+    
+    /* CORREÇÃO DE ALINHAMENTO */
+    display: block;        /* Remove o flexbox centralizado do Login */
+    justify-content: unset; 
+    align-items: unset;
+    min-height: 100vh;
+}
+
+/* Ajuste para quando a sidebar estiver fechada */
+body.with-navbar.sidebar-closed {
+    padding-left: 0;
+}
+
+.welcome-header {
+  position: relative;
+}
+
+/* BOTÃO LINK */
+.upload-btn-link {
+  position: absolute;
+  top: 10px;
+  right: 80px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 10px;
+  text-decoration: none;
+
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+  transition: all 0.3s ease;
+}
+
+/* HOVER */
+.upload-btn-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.45);
+}
+
+/* CLIQUE */
+.upload-btn-link:active {
+  transform: scale(0.97);
+}
+
+/* --- CUSTOMIZAÇÃO SIMPLE-DATATABLES --- */
+.datatable-wrapper .datatable-top {
+  padding: 0 0 20px 0;
+}
+
+.datatable-wrapper .datatable-input {
+  width: 300px !important;
+  border-radius: 50px !important;
+  border: 1px solid #d1d5db;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.datatable-wrapper .datatable-selector {
+  border-radius: 8px !important;
+  border: 1px solid #d1d5db;
+  padding: 6px 30px 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Foco Azul */
+.datatable-wrapper .datatable-input:focus,
+.datatable-wrapper .datatable-selector:focus {
+  outline: none !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15) !important;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition);
+  margin-top: 0.5rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-primary:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* --- LOADER DE CARREGAMENTO  --- */
+
+/* Usamos o ID #pedidosTable para vencer a regra de alinhamento à esquerda padrão */
+#pedidosTable tr.loading-row td {
+    text-align: center !important; /* Força o texto para o centro */
+    padding: 80px 0 !important;    /* Mais espaço vertical */
+    background-color: #fff;
+    border-bottom: none;
+    vertical-align: middle;
+    display: table-cell;           /* Garante comportamento de célula */
+}
+
+.spinner {
+    display: block;                /* Garante que respeite as margens */
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e5e7eb;
+    border-top: 4px solid #60a5fa;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px auto;      /* 0 nas laterais (centro) e 20px embaixo */
+}
+
+.loading-text {
+    color: #6b7280;
+    font-size: 15px;
+    font-weight: 500;
+    animation: pulse 1.5s infinite;
+    display: block;                /* Ocupa a largura toda para centralizar o texto */
+    width: 100%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Botão padrão */
+.btn-continuar {
+    background-color: #4CAF50; /* verde */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-continuar:hover {
+    background-color: #45a049;
+}
+
+/* Botão desabilitado */
+button[disabled] {
+    background-color: #ccc; /* cinza */
+    color: #666;            /* texto mais escuro */
+    cursor: not-allowed;    /* muda o cursor para indicar bloqueio */
+    opacity: 0.7;           /* dá um efeito de desabilitado */
+}
+
+.btn-disable {
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.coluna-ajustada {
+  width: 1%;
+  padding-right: 20px;
+}

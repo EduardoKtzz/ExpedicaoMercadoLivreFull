@@ -1,0 +1,311 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  color: #111827;
+  min-height: 100vh;
+}
+
+.app-container {
+  max-width: 1900px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* =========================================
+   HEADER, BARRA DE PROGRESSO E SCANNER
+   ========================================= */
+.app-header { margin-bottom: 25px; }
+
+.app-header h1 {
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+  color: #1f2937;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin-bottom: 15px;
+}
+
+/* BARRA DE PROGRESSO (NOVO) */
+.progress-container {
+  width: 100%;
+  background-color: #e5e7eb;
+  height: 24px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  border: 1px solid #d1d5db;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #2563eb); /* Azul vibrante */
+  width: 0%;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+}
+
+#textoProgresso {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: 800;
+  color: #374151;
+  text-transform: uppercase;
+  z-index: 2;
+  text-shadow: 0 0 4px rgba(255,255,255,0.8); /* Contraste */
+}
+
+/* SCANNER BOX (Com Feedback Visual de Foco) */
+.scanner-box {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border: 2px solid #e5e7eb; /* Borda base mais grossa */
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Quando o input é clicado, a caixa inteira brilha azul */
+.scanner-box:focus-within {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.scanner-box label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.scanner-box input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 2px solid #d1d5db;
+  transition: all 0.2s;
+  font-family: 'Courier New', monospace;
+}
+
+.scanner-box input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: white;
+}
+
+/* =========================================
+   ESTRUTURA DA TABELA
+   ========================================= */
+.table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+thead { background: #111827; }
+
+thead th {
+  color: #f9fafb;
+  padding: 15px 12px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 2px solid #374151;
+}
+
+tbody tr {
+  background: white;
+  height: 65px;
+  transition: background 0.1s;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tbody td {
+  padding: 0 12px;
+  vertical-align: middle !important;
+  color: #374151;
+  font-size: 14px;
+}
+
+/* =========================================
+   COLUNAS E CONTEÚDO
+   ========================================= */
+td.nome {
+    font-weight: 800;
+    color: #111827;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+
+td.pedido, td.ean, td.codigoML, td.gs {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    letter-spacing: -0.5px;
+}
+
+td.qtdTotal, td.qtdSeparada {
+    font-size: 26px !important;
+    font-weight: 800;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Coluna Separado (Destaque Verde) */
+td.qtdSeparada {
+    background-color: #ecfdf5;
+    color: #059669;
+    border-left: 1px solid #d1fae5;
+    border-right: 1px solid #d1fae5;
+}
+
+/* STATUS BADGES & ÍCONES */
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 32px;
+  border-radius: 6px;
+  font-size: 12px; /* Fonte levemente menor para caber ícone + texto */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-true { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.status-false { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+
+/* Ícone SVG dentro do status */
+.icon-status {
+  width: 14px; 
+  height: 14px; 
+  margin-right: 6px;
+  fill: currentColor; /* Pega a cor do texto automaticamente */
+}
+
+/* Correção Alinhamento Status */
+tbody tr:not(#loading-row) td:last-child {
+    display: flex !important;       
+    align-items: center !important; 
+    justify-content: center !important; 
+    height: 65px; 
+    padding: 0 10px !important;
+    border-bottom: 1px solid #e5e7eb; 
+}
+@media (max-width: 1024px) {
+    tbody tr:not(#loading-row) td:last-child { width: 100%; border: none; height: auto; padding: 10px !important; }
+}
+
+/* =========================================
+   ESTADO FINALIZADO (VISUAL LIMPO)
+   ========================================= */
+tr.linha-concluida {
+    background-color: #ecfdf5 !important;
+    border-bottom: 1px solid #d1fae5;
+}
+
+tr.linha-concluida td {
+    color: #059669 !important; /* Verde Esmeralda */
+    text-decoration: none !important; /* SEM RISCO */
+    font-weight: 600;
+    opacity: 1;
+}
+
+tr.linha-concluida .status { opacity: 1; text-decoration: none; }
+tr.linha-concluida td.qtdSeparada { background-color: #ecfdf5; color: #059669; font-weight: 800; }
+
+/* ANIMAÇÃO FLASH */
+.animacao-bip { animation: flash-solid 1s ease-out; position: relative; z-index: 15; }
+@keyframes flash-solid {
+    0% { background-color: #22c55e; }
+    15% { background-color: #4ade80; }
+    100% { background-color: inherit; }
+}
+
+/* =========================================
+   LOADING E MODAL
+   ========================================= */
+.loading-cell { 
+    display: table-cell !important; 
+    text-align: center; 
+    padding: 60px 0; 
+    background-color: white; 
+    color: #6b7280; 
+    font-weight: 600; 
+    width: 100%;
+}
+.spinner {
+    border: 3px solid #f3f3f3; border-top: 3px solid #2563eb; border-radius: 50%;
+    width: 30px; height: 30px; animation: spin 0.8s linear infinite; margin: 0 auto 10px auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Modal */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 999; backdrop-filter: blur(2px); }
+.modal.ativo { display: flex; }
+.modal-card { background: white; padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); width: 400px; animation: modalIn 0.3s ease-out; }
+@keyframes modalIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.modal-card h2 { font-size: 24px; margin-bottom: 10px; color: #111827; }
+.modal-card button { background: #2563eb; color: white; border: none; padding: 12px 24px; font-weight: 600; font-size: 16px; border-radius: 6px; width: 100%; margin-top: 20px; cursor: pointer; }
+.modal-card button:hover { background: #1d4ed8; }
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .app-container { padding: 10px; margin: 10px; }
+  td.nome { max-width: 200px; }
+}
+
+.app-header {
+  position: relative;
+}
+
+.btn-voltar {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  background-color: #1d4ed8; /* azul intenso */
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.btn-voltar:hover {
+  background-color: #2563eb; /* azul um pouco mais claro */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-voltar:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

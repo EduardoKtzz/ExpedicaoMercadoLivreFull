@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Sistema de Pedidos</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 Acesso ao Sistema</h1>
+    <p class="subtitle">Entre com suas credenciais para continuar.</p>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="nome@empresa.com.br" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" id="loginBtn" class="btn-primary">Entrar no Sistema</button>
+    </form>
+    <button type="submit" id="cadastroBtn" class="btn-primary">Cadastre-se</button>
+
+    <div class="status" id="status"></div>
+  </div>
+
+  <script src="./js/login.js"></script>
+</body>
+</html>

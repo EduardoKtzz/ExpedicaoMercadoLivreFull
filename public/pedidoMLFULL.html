@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload de Pedidos</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>📄 Upload de Pedidos</h1>
+    <p class="subtitle">Envie seu arquivo para processar os pedidos automaticamente.</p>
+
+    <!-- NOVO: input para nome do pedido -->
+    <div class="pedido">
+      <label for="pedido">Número do pedido (ATON):</label>
+      <input type="text" id="pedido" maxlength="6" placeholder="Digite o número do pedido do ATON">
+    </div>
+
+    <div class="file-info" id="fileInfo">
+      <span id="fileIcon"></span>
+      <span id="fileName"></span>
+    </div>
+
+    <div class="upload-area">
+      <input type="file" id="pedidoFile" accept=".txt">
+      <label for="pedidoFile">Escolher arquivo</label>
+    </div>
+
+    <button id="uploadBtn">Enviar</button>
+
+    <div class="status" id="status"></div>
+  </div>
+  <script src="/js/pedidoMLFULL.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Pedidos MLFULL</title>
+  <link rel="stylesheet" href="css/gestãoDePedidos.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" />
+</head>
+<body>
+  
+  <div class="main-content">
+  
+    <div class="welcome-header">
+      <h1 id="greeting">📦 Gestão De Pedidos</h1>
+        <!-- Botão para outra página -->
+        <a href="pedidoMLFULL.html" class="upload-btn-link">
+          Importar um novo Pedido
+        </a>
+      <p class="subtitle">Selecione um pedido abaixo para iniciar suas atividades.</p>
+    </div>
+
+    <!-- Tabela de pedidos -->
+    <section class="table-container">
+      <table id="pedidosTable" class="datatable">
+        <thead>
+          <tr>
+            <th>Pedido</th>
+            <th>Status</th>
+            <th>Abertura do Pedido</th>
+            <th>SLA</th>
+            <th>Usuário</th>
+            <th class="coluna-ajustada">Ação</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <!-- Template de linha -->
+      <template id="pedidoRowTemplate">
+        <tr>
+          <td class="pedido"></td>
+          <td class="status"></td>
+          <td class="dataAbertura"></td>
+          <td class="SLA"></td>
+          <td class="usuario"></td>
+          <td class="botãoAcao"></td>
+        </tr>
+      </template>
+    </section>
+
+
+
+  </div>
+  <script src="./components/navbar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" defer></script>
+  <script src="./js/gestãoDePedidos.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Separação de Pedidos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/separacaoDePedidos.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <header class="app-header">
+      <h1>📦 Separação de Pedidos</h1>
+      
+      <div class="progress-container">
+        <div class="progress-bar" id="barraProgresso" style="width: 0%"></div>
+        <span id="textoProgresso">0% Concluído</span>
+      </div>
+      
+        <!-- Botão voltar -->
+      <button class="btn-voltar" onclick="voltarMenu()">
+        Voltar ao menu
+      </button>
+    </header>
+
+    <section class="scanner-box">
+      <label for="eanInput">Leitura de Código de Barras</label>
+      <input 
+        type="text" 
+        id="eanInput" 
+        placeholder="Clique aqui e leia o código..."
+        autocomplete="off"
+      >
+    </section>
+
+    <section class="table-container dataTable-wrapper">
+      <table id="pedidosTable">
+        <thead>
+          <tr>
+            <th style="width: 7%;">Pedido</th>
+
+            <!-- Coluna de ean e codigoML na tabela -->
+
+            <!--
+            <th style="width: 11%;">EAN</th>
+            <th style="width: 9%;">Código ML</th>
+            -->
+
+            <th style="width: 38%;">Produto</th>
+            <th style="width: 9%;">GS</th>
+            <th style="width: 8%;">Total</th>
+            <th style="width: 8%;">Separado</th>
+            <th style="width: 13%;">Status</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-pedidos-body">
+          <tr id="loading-row">
+            <td colspan="6" class="loading-cell">
+              <div class="spinner"></div>
+              <div class="loading-text">Buscando pedidos...</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <template id="pedidoRowTemplate">
+        <tr>
+          <td class="pedido"></td>
+
+          <!-- Coluna de ean e codigoML na tabela -->
+
+          <!--
+          <td class="ean"></td> 
+          <td class="codigoML"></td>
+          -->
+
+          <td class="nome"></td>
+          <td class="gs"></td>
+          <td class="qtdTotal"></td>
+          <td class="qtdSeparada"></td>
+          <td class="status"></td>
+        </tr>
+      </template>
+    </section>
+
+  </div>
+
+  <div id="modalFinalizado" class="modal">
+    <div class="modal-card">
+      <h2>Pedido Finalizado! 🚀</h2>
+      <p>Todos os produtos foram separados com sucesso.</p>
+      <button onclick="irParaCheckup()">Ir para Checkup</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" defer></script>
+  <script src="js/qz-tray.js"></script>
+  <script src="js/qz-config.js"></script>
+  <script src="js/printService.js"></script>
+  <script src="js/separaçãoDePedidos.js"></script> 
+
+</body>
+</html>
