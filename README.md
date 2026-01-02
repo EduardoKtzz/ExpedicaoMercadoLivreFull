@@ -40,6 +40,7 @@ Validações garantem integridade entre produto, etiqueta e pedido
 
 ## 🛠️ Tecnologias Utilizadas
 **Frontend**
+
 CSS
 
 JavaScript
@@ -47,6 +48,7 @@ JavaScript
 React
 
 **Backend**
+
 TypeScript
 
 APIs REST
