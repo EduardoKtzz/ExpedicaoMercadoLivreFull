@@ -11,14 +11,23 @@ Cada produto bipado gera uma etiqueta individual, com validações para evitar d
 ## ⚙️ Funcionalidades
 
 📄 Leitura e processamento de arquivos de pedidos do Mercado Livre FULL
+
 📦 Abertura automática de pedidos no sistema
+
 🔍 Controle de expedição por bipagem de produtos
+
 🏷️ Geração automática de etiquetas por produto
+
 🛑 Validações para impedir impressão duplicada de etiquetas
+
 🔁 Dupla verificação por bipagem para confirmação do produto
+
 🖨️ Integração com impressora de etiquetas
+
 📊 Gestão e acompanhamento de pedidos
+
 👤 Controle de usuários e permissões
+
 🧠 Regras de Negócio
 
 Cada produto só pode gerar uma etiqueta válida
@@ -32,13 +41,18 @@ Validações garantem integridade entre produto, etiqueta e pedido
 ## 🛠️ Tecnologias Utilizadas
 **Frontend
 CSS
+
 JavaScript
+
 React
 
 **Backend
 TypeScript
+
 APIs REST
+
 Banco de Dados
+
 Supabase
 
 ##🎯 Objetivo do Projeto
