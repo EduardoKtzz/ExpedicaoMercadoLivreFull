@@ -1,0 +1,34 @@
+create table public.users (
+  id serial not null,
+  nome text not null,
+  email text not null,
+  senha_hash text not null,
+  ativo boolean null default true,
+  criado_em timestamp without time zone null default now(),
+  setor public.setor_enum null,
+  desativado_em timestamp without time zone null,
+  "setorUserId" smallint null,
+  role public.role_enum null,
+  constraint Users_pkey primary key (id),
+  constraint Users_email_key unique (email)
+) TABLESPACE pg_default;
+
+create trigger trg_atualizar_setor_id BEFORE INSERT
+or
+update OF setor on users for EACH row
+execute FUNCTION fn_atualizar_setor_id_automatico ();
+
+create table public."pedidoMLFULL" (
+  id uuid not null default gen_random_uuid (),
+  "GS" text not null,
+  "nomeProduto" text not null,
+  "ZPLfull" text not null,
+  "quantidadeTotal" smallint not null,
+  "quantidadeSeparada" smallint null,
+  "EAN" text null,
+  status text null,
+  "userId" integer null,
+  pedido text null,
+  constraint pedidoMLFULL_pkey primary key (id),
+  constraint pedidoMLFULL_userId_fkey foreign KEY ("userId") references users (id)
+) TABLESPACE pg_default;
